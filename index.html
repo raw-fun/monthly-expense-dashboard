@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নভেম্বর ২০২৫ - ড্যাশবোর্ড</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb; /* Royal Blue */
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        /* Main Container Styling */
+        .main-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            background: var(--bg-card);
+            padding: 20px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            background-color: #eff6ff;
+            color: var(--primary);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.5rem;
+        }
+
+        .page-title h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .page-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .btn-print {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-print:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .stat-icon {
+            position: absolute;
+            right: 25px;
+            top: 30px;
+            font-size: 3rem;
+            opacity: 0.08;
+            transform: rotate(-10deg);
+        }
+
+        .stat-card.balance .stat-value { color: var(--primary); }
+        .stat-card.income .stat-value { color: var(--success); }
+        .stat-card.expense .stat-value { color: var(--danger); }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Left side wider */
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-body {
+            padding: 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 18px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 18px 25px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+            font-size: 1rem;
+            vertical-align: middle;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tbody tr:hover { background-color: #f8fafc; }
+
+        .text-right { text-align: right; }
+        .text-center { text-align: center; }
+        .fw-bold { font-weight: 700; }
+
+        /* Badge Styles */
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .badge-flat { background-color: #f1f5f9; color: var(--text-main); border: 1px solid #e2e8f0; }
+        .badge-paid { background-color: #ecfdf5; color: var(--success); border: 1px solid #d1fae5; }
+        .badge-header { background-color: #eff6ff; color: var(--primary); border: 1px solid #dbeafe; }
+
+        /* Expense List Styling */
+        .expense-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 30px;
+            border-bottom: 1px solid var(--border);
+        }
+        .expense-info { flex: 1; }
+        .expense-name { font-weight: 500; display: block; margin-bottom: 6px; }
+        .expense-bar-bg {
+            height: 6px;
+            background-color: #f1f5f9;
+            border-radius: 3px;
+            width: 70%;
+        }
+        .expense-bar-fill {
+            height: 100%;
+            background-color: var(--danger);
+            border-radius: 3px;
+        }
+        .expense-amount { font-weight: 600; font-size: 1.05rem; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .header { flex-direction: column; text-align: center; gap: 20px; }
+            .brand { flex-direction: column; }
+        }
+
+        /* Print Styles */
+        @media print {
+            .btn-print { display: none; }
+            body { background-color: white; -webkit-print-color-adjust: exact; }
+            .main-container { max-width: 100%; padding: 0; }
+            .card, .header, .stat-card { box-shadow: none; border: 1px solid #ccc; }
+            .dashboard-grid { display: block; }
+            .card { margin-bottom: 25px; break-inside: avoid; }
+            .header { margin-bottom: 20px; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="page-title">
+                    <h2>নভেম্বর ২০২৫</h2>
+                    <p>মাসিক হিসাব বিবরণী ও রিপোর্ট</p>
+                </div>
+            </div>
+            
+            <button onclick="window.print()" class="btn-print">
+                <i class="fas fa-print"></i> রিপোর্ট প্রিন্ট
+            </button>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card balance">
+                <div class="stat-label">বর্তমান স্থিতি</div>
+                <div class="stat-value">৳ ৫,১৪৭</div>
+                <i class="fas fa-wallet stat-icon"></i>
+            </div>
+            <div class="stat-card income">
+                <div class="stat-label">মোট আদায়</div>
+                <div class="stat-value">৳ ১৪,৫০০</div>
+                <i class="fas fa-arrow-down stat-icon"></i>
+            </div>
+            <div class="stat-card expense">
+                <div class="stat-label">মোট খরচ</div>
+                <div class="stat-value">৳ 11,353</div>
+                <i class="fas fa-arrow-up stat-icon"></i>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">পূর্বের স্থিতি</div>
+                <div class="stat-value">৳ ২,০০০</div>
+                <i class="fas fa-history stat-icon"></i>
+            </div>
+        </div>
+
+        <!-- Dashboard Layout -->
+        <div class="dashboard-grid">
+            
+            <!-- Left: Collection Table -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i class="fas fa-users" style="color: var(--primary);"></i> সার্ভিস চার্জ আদায়</div>
+                    <span class="badge badge-header">14 জন সদস্য</span>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>সদস্যের নাম</th>
+                                <th class="text-center">ফ্ল্যাট</th>
+                                <th class="text-center">স্ট্যাটাস</th>
+                                <th class="text-right">পরিমাণ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="font-weight: 500;">মোঃ আব্দুল মতিন</div>
+                                    <small style="color: var(--text-muted);">ক্রমিক: ১</small>
+                                </td>
+                                <td class="text-center"><span class="badge badge-flat">1-A</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">২,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ হুমায়ুন কবির বাবু</td>
+                                <td class="text-center"><span class="badge badge-flat">1-B</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">৫০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ আবুল হোসেন</td>
+                                <td class="text-center"><span class="badge badge-flat">2-A</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ সাইদুজ্জামান (সবুজ)</td>
+                                <td class="text-center"><span class="badge badge-flat">2-B</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ আব্দুর রশীদ সেখ</td>
+                                <td class="text-center"><span class="badge badge-flat">3-A</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ ইসমাইল হোসেন</td>
+                                <td class="text-center"><span class="badge badge-flat">3-B</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ আব্দুল খালেক</td>
+                                <td class="text-center"><span class="badge badge-flat">4-A</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ মোতালেব</td>
+                                <td class="text-center"><span class="badge badge-flat">4-B</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ রফিক হাসান</td>
+                                <td class="text-center"><span class="badge badge-flat">5-A</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোছাঃ সালমা জাহান (শিল্পী)</td>
+                                <td class="text-center"><span class="badge badge-flat">5-B</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ পারভেজ আহমেদ</td>
+                                <td class="text-center"><span class="badge badge-flat">6-A</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ জসীম উদ্দিন</td>
+                                <td class="text-center"><span class="badge badge-flat">6-B</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোঃ ফারুকুল ইসলাম</td>
+                                <td class="text-center"><span class="badge badge-flat">7-A</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr>
+                                <td>মোছাঃ আলেয়া বেগম</td>
+                                <td class="text-center"><span class="badge badge-flat">7-B</span></td>
+                                <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
+                                <td class="text-right fw-bold">১,০০০/-</td>
+                            </tr>
+                            <tr style="background-color: #f0fdf4;">
+                                <td colspan="3" class="text-right fw-bold" style="color: var(--success); font-size: 1.1rem;">মোট আদায়</td>
+                                <td class="text-right fw-bold" style="color: var(--success); font-size: 1.2rem;">১৪,৫০০/-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right: Expenses List -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i class="fas fa-file-invoice-dollar" style="color: var(--danger);"></i> খরচের খাত</div>
+                    <span class="badge badge-header" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;">৭টি খাত</span>
+                </div>
+                <div class="card-body" style="padding: 10px 0;">
+                    
+                    <!-- Expense Item -->
+                    <div class="expense-item">
+                        <div class="expense-info">
+                            <span class="expense-name">পানির বিল</span>
+                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 80%;"></div></div>
+                        </div>
+                        <div class="expense-amount">৪,০৩৩/-</div>
+                    </div>
+
+                    <div class="expense-item">
+                        <div class="expense-info">
+                            <span class="expense-name">বিদ্যুৎ বিল</span>
+                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 60%;"></div></div>
+                        </div>
+                        <div class="expense-amount">৩,০৩০/-</div>
+                    </div>
+
+                    <div class="expense-item">
+                        <div class="expense-info">
+                            <span class="expense-name">নাইট গার্ডের বেতন</span>
+                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 20%;"></div></div>
+                        </div>
+                        <div class="expense-amount">১,০০০/-</div>
+                    </div>
+
+                    <div class="expense-item">
+                        <div class="expense-info">
+                            <span class="expense-name">বুয়ার বেতন</span>
+                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 45%;"></div></div>
+                        </div>
+                        <div class="expense-amount">২,৫০০/-</div>
+                    </div>
+
+                    <div class="expense-item">
+                        <div class="expense-info">
+                            <span class="expense-name">চাবি</span>
+                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 5%;"></div></div>
+                        </div>
+                        <div class="expense-amount">৭০/-</div>
+                    </div>
+
+                    <div class="expense-item">
+                        <div class="expense-info">
+                            <span class="expense-name">রেজিস্ট্রি খাতা ক্রয়</span>
+                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 5%;"></div></div>
+                        </div>
+                        <div class="expense-amount">১২০/-</div>
+                    </div>
+
+                    <div class="expense-item">
+                        <div class="expense-info">
+                            <span class="expense-name">সম্মানী ভাতা</span>
+                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 10%;"></div></div>
+                        </div>
+                        <div class="expense-amount">৫০০/-</div>
+                    </div>
+
+                    <div class="expense-item" style="background-color: #fef2f2;">
+                        <div class="expense-info">
+                            <span class="expense-name fw-bold" style="color: var(--danger); font-size: 1.1rem;">সর্বমোট খরচ</span>
+                        </div>
+                        <div class="expense-amount fw-bold" style="color: var(--danger); font-size: 1.2rem;">11,353/-</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
