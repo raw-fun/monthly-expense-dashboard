@@ -17,9 +17,9 @@
             --success: #10b981;
             --danger: #ef4444;
             --warning: #f59e0b;
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
-            --text-main: #1e293b;
+            --background-body: #f8fafc;
+            --background-card: #ffffff;
+            --text-primary: #1e293b;
             --text-muted: #64748b;
             --border: #e2e8f0;
         }
@@ -32,8 +32,8 @@
 
         body {
             font-family: 'Hind Siliguri', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
+            background-color: var(--background-body);
+            color: var(--text-primary);
             min-height: 100vh;
         }
 
@@ -50,20 +50,20 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
-            background: var(--bg-card);
+            background: var(--background-card);
             padding: 20px 30px;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border);
         }
 
-        .brand {
+        .header-brand {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .brand-icon {
+        .header-brand-icon {
             background-color: #eff6ff;
             color: var(--primary);
             width: 48px;
@@ -78,7 +78,7 @@
         .page-title h2 {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text-main);
+            color: var(--text-primary);
             line-height: 1.2;
         }
 
@@ -117,7 +117,7 @@
         }
 
         .stat-card {
-            background: var(--bg-card);
+            background: var(--background-card);
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -144,7 +144,7 @@
         .stat-value {
             font-size: 2.2rem;
             font-weight: 700;
-            color: var(--text-main);
+            color: var(--text-primary);
         }
 
         .stat-icon {
@@ -168,7 +168,7 @@
         }
 
         .card {
-            background: var(--bg-card);
+            background: var(--background-card);
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border);
@@ -187,7 +187,7 @@
         .card-title {
             font-size: 1.2rem;
             font-weight: 700;
-            color: var(--text-main);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -218,7 +218,7 @@
         td {
             padding: 18px 25px;
             border-bottom: 1px solid var(--border);
-            color: var(--text-main);
+            color: var(--text-primary);
             font-size: 1rem;
             vertical-align: middle;
         }
@@ -228,7 +228,7 @@
 
         .text-right { text-align: right; }
         .text-center { text-align: center; }
-        .fw-bold { font-weight: 700; }
+        .font-weight-bold { font-weight: 700; }
 
         /* Badge Styles */
         .badge {
@@ -238,7 +238,7 @@
             font-weight: 600;
             display: inline-block;
         }
-        .badge-flat { background-color: #f1f5f9; color: var(--text-main); border: 1px solid #e2e8f0; }
+        .badge-flat { background-color: #f1f5f9; color: var(--text-primary); border: 1px solid #e2e8f0; }
         .badge-paid { background-color: #ecfdf5; color: var(--success); border: 1px solid #d1fae5; }
         .badge-header { background-color: #eff6ff; color: var(--primary); border: 1px solid #dbeafe; }
 
@@ -252,13 +252,13 @@
         }
         .expense-info { flex: 1; }
         .expense-name { font-weight: 500; display: block; margin-bottom: 6px; }
-        .expense-bar-bg {
+        .expense-progress-bar-background {
             height: 6px;
             background-color: #f1f5f9;
             border-radius: 3px;
             width: 70%;
         }
-        .expense-bar-fill {
+        .expense-progress-bar-fill {
             height: 100%;
             background-color: var(--danger);
             border-radius: 3px;
@@ -269,7 +269,7 @@
         @media (max-width: 1024px) {
             .dashboard-grid { grid-template-columns: 1fr; }
             .header { flex-direction: column; text-align: center; gap: 20px; }
-            .brand { flex-direction: column; }
+            .header-brand { flex-direction: column; }
         }
 
         /* Print Styles */
@@ -290,8 +290,8 @@
         
         <!-- Header -->
         <header class="header">
-            <div class="brand">
-                <div class="brand-icon">
+            <div class="header-brand">
+                <div class="header-brand-icon">
                     <i class="fas fa-building"></i>
                 </div>
                 <div class="page-title">
@@ -356,89 +356,89 @@
                                 </td>
                                 <td class="text-center"><span class="badge badge-flat">1-A</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">২,০০০/-</td>
+                                <td class="text-right font-weight-bold">২,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ হুমায়ুন কবির বাবু</td>
                                 <td class="text-center"><span class="badge badge-flat">1-B</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">৫০০/-</td>
+                                <td class="text-right font-weight-bold">৫০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ আবুল হোসেন</td>
                                 <td class="text-center"><span class="badge badge-flat">2-A</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ সাইদুজ্জামান (সবুজ)</td>
                                 <td class="text-center"><span class="badge badge-flat">2-B</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ আব্দুর রশীদ সেখ</td>
                                 <td class="text-center"><span class="badge badge-flat">3-A</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ ইসমাইল হোসেন</td>
                                 <td class="text-center"><span class="badge badge-flat">3-B</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ আব্দুল খালেক</td>
                                 <td class="text-center"><span class="badge badge-flat">4-A</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ মোতালেব</td>
                                 <td class="text-center"><span class="badge badge-flat">4-B</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ রফিক হাসান</td>
                                 <td class="text-center"><span class="badge badge-flat">5-A</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোছাঃ সালমা জাহান (শিল্পী)</td>
                                 <td class="text-center"><span class="badge badge-flat">5-B</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ পারভেজ আহমেদ</td>
                                 <td class="text-center"><span class="badge badge-flat">6-A</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ জসীম উদ্দিন</td>
                                 <td class="text-center"><span class="badge badge-flat">6-B</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোঃ ফারুকুল ইসলাম</td>
                                 <td class="text-center"><span class="badge badge-flat">7-A</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr>
                                 <td>মোছাঃ আলেয়া বেগম</td>
                                 <td class="text-center"><span class="badge badge-flat">7-B</span></td>
                                 <td class="text-center"><span class="badge badge-paid">পরিশোধিত</span></td>
-                                <td class="text-right fw-bold">১,০০০/-</td>
+                                <td class="text-right font-weight-bold">১,০০০/-</td>
                             </tr>
                             <tr style="background-color: #f0fdf4;">
-                                <td colspan="3" class="text-right fw-bold" style="color: var(--success); font-size: 1.1rem;">মোট আদায়</td>
-                                <td class="text-right fw-bold" style="color: var(--success); font-size: 1.2rem;">১৪,৫০০/-</td>
+                                <td colspan="3" class="text-right font-weight-bold" style="color: var(--success); font-size: 1.1rem;">মোট আদায়</td>
+                                <td class="text-right font-weight-bold" style="color: var(--success); font-size: 1.2rem;">১৪,৫০০/-</td>
                             </tr>
                         </tbody>
                     </table>
@@ -457,7 +457,7 @@
                     <div class="expense-item">
                         <div class="expense-info">
                             <span class="expense-name">পানির বিল</span>
-                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 80%;"></div></div>
+                            <div class="expense-progress-bar-background"><div class="expense-progress-bar-fill" style="width: 80%;"></div></div>
                         </div>
                         <div class="expense-amount">৪,০৩৩/-</div>
                     </div>
@@ -465,7 +465,7 @@
                     <div class="expense-item">
                         <div class="expense-info">
                             <span class="expense-name">বিদ্যুৎ বিল</span>
-                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 60%;"></div></div>
+                            <div class="expense-progress-bar-background"><div class="expense-progress-bar-fill" style="width: 60%;"></div></div>
                         </div>
                         <div class="expense-amount">৩,০৩০/-</div>
                     </div>
@@ -473,7 +473,7 @@
                     <div class="expense-item">
                         <div class="expense-info">
                             <span class="expense-name">নাইট গার্ডের বেতন</span>
-                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 20%;"></div></div>
+                            <div class="expense-progress-bar-background"><div class="expense-progress-bar-fill" style="width: 20%;"></div></div>
                         </div>
                         <div class="expense-amount">১,০০০/-</div>
                     </div>
@@ -481,7 +481,7 @@
                     <div class="expense-item">
                         <div class="expense-info">
                             <span class="expense-name">বুয়ার বেতন</span>
-                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 45%;"></div></div>
+                            <div class="expense-progress-bar-background"><div class="expense-progress-bar-fill" style="width: 45%;"></div></div>
                         </div>
                         <div class="expense-amount">২,৫০০/-</div>
                     </div>
@@ -489,7 +489,7 @@
                     <div class="expense-item">
                         <div class="expense-info">
                             <span class="expense-name">চাবি</span>
-                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 5%;"></div></div>
+                            <div class="expense-progress-bar-background"><div class="expense-progress-bar-fill" style="width: 5%;"></div></div>
                         </div>
                         <div class="expense-amount">৭০/-</div>
                     </div>
@@ -497,7 +497,7 @@
                     <div class="expense-item">
                         <div class="expense-info">
                             <span class="expense-name">রেজিস্ট্রি খাতা ক্রয়</span>
-                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 5%;"></div></div>
+                            <div class="expense-progress-bar-background"><div class="expense-progress-bar-fill" style="width: 5%;"></div></div>
                         </div>
                         <div class="expense-amount">১২০/-</div>
                     </div>
@@ -505,16 +505,16 @@
                     <div class="expense-item">
                         <div class="expense-info">
                             <span class="expense-name">সম্মানী ভাতা</span>
-                            <div class="expense-bar-bg"><div class="expense-bar-fill" style="width: 10%;"></div></div>
+                            <div class="expense-progress-bar-background"><div class="expense-progress-bar-fill" style="width: 10%;"></div></div>
                         </div>
                         <div class="expense-amount">৫০০/-</div>
                     </div>
 
                     <div class="expense-item" style="background-color: #fef2f2;">
                         <div class="expense-info">
-                            <span class="expense-name fw-bold" style="color: var(--danger); font-size: 1.1rem;">সর্বমোট খরচ</span>
+                            <span class="expense-name font-weight-bold" style="color: var(--danger); font-size: 1.1rem;">সর্বমোট খরচ</span>
                         </div>
-                        <div class="expense-amount fw-bold" style="color: var(--danger); font-size: 1.2rem;">11,353/-</div>
+                        <div class="expense-amount font-weight-bold" style="color: var(--danger); font-size: 1.2rem;">11,353/-</div>
                     </div>
 
                 </div>
