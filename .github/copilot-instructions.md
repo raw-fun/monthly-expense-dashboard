@@ -49,7 +49,7 @@ This is a single-page HTML dashboard for tracking monthly expenses for a residen
 1. Add a new `<tr>` row in the collection table
 2. Include member name, flat number badge, status badge, and amount
 3. Update the total collection row at the bottom
-4. Update the "X জন সদস্য" count in the card header
+4. Update the member count in the card header (e.g., "১৪ জন সদস্য" for 14 members)
 5. Update the stats cards at the top to reflect new totals
 
 ### Adding New Expense Categories
@@ -57,7 +57,7 @@ This is a single-page HTML dashboard for tracking monthly expenses for a residen
 2. Include expense name and amount
 3. Add a visual bar indicator with appropriate width percentage
 4. Update the total expense row at the bottom
-5. Update the "Xটি খাত" count in the card header
+5. Update the expense category count in the card header (e.g., "৭টি খাত" for 7 categories)
 6. Update the stats cards to reflect new totals
 
 ### Updating Colors or Theme
@@ -74,6 +74,7 @@ This is a single-page HTML dashboard for tracking monthly expenses for a residen
 ## Important Notes
 - This is a static dashboard - no backend or database
 - Data is hardcoded in the HTML file
-- The dashboard is designed for a specific building/community (November 2025 data)
+- The dashboard is designed for a specific building/community with monthly data
+- When creating a new month's dashboard, update the month/year in the header and all data accordingly
 - Maintain the existing visual design and layout structure
 - Preserve print functionality as users rely on it for generating reports
